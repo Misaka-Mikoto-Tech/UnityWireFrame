@@ -5,7 +5,7 @@ using UnityEngine;
 public class MeshModifier : MonoBehaviour {
 
     public SkinnedMeshRenderer smr;
-    [Range(0, 3)]
+    [Range(1, 3)]
     public float wireWidth = 1.0f;
 
     private Material _mat;

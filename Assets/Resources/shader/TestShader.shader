@@ -94,12 +94,14 @@ Shader "Unlit/TestShader"
 				o.vertex = mul(UNITY_MATRIX_M, v.vertex);
 				o.worldNormal = mul(v.normal, (float3x3)unity_WorldToObject);
 				o.worldNormal = normalize(o.worldNormal);
-				o.vertex.xyz += o.worldNormal * 0.0005;
+				o.viewDir = _WorldSpaceCameraPos.xyz-mul(unity_ObjectToWorld,v.vertex).xyz;
+				half3 viewLen = length(o.viewDir);
+				o.vertex.xyz += o.worldNormal  * 0.0005;
+				o.viewDir = normalize(o.viewDir);
 
 				o.vertex = mul(UNITY_MATRIX_VP, o.vertex);
 				o.barycentric = _barycentrics[v.vid % 3];
 
-				o.viewDir=normalize(_WorldSpaceCameraPos.xyz-mul(unity_ObjectToWorld,v.vertex).xyz);
 				return o;
 			}
 			
@@ -116,8 +118,8 @@ Shader "Unlit/TestShader"
 				{
 					min_dist = 1.0 - min_dist;
 				}
-
-				fixed4 col = min_dist * fixed4(1, 0, 0, min_dist);
+				
+				fixed4 col = min_dist * fixed4(1, 0, 0, 1);
 				
 				return col;
 			}
