@@ -1,2 +1,2 @@
 # UnityWireFrame
-Draw WireFrame of mesh in unity
+## 在 Unity 内给 Mesh 画 WireFrame，目前存在的问题是会增大 Mesh 的尺寸，但此实现无需 Geometry Shader
