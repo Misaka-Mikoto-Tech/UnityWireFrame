@@ -156,10 +156,13 @@ public class MeshModifier : MonoBehaviour {
             {
                 subIndices[j] = idxOffset + j;
             }
-            //newMesh.SetVertices()
+
             newMesh.SetIndices(subIndices, MeshTopology.Triangles, i);
             idxOffset += (int)subIdxCount;
         }
+
+        newMesh.bounds = mesh.bounds;
+        newMesh.indexFormat = mesh.indexFormat;
 
         return newMesh;
     }
