@@ -12,11 +12,6 @@ public class MeshModifier : MonoBehaviour {
     void Start () {
 
         _mat = smr.materials[0];
-        Vector4[] barycentrics = new Vector4[3];
-        barycentrics[0] = new Vector4(1, 0, 0, 0);
-        barycentrics[1] = new Vector4(0, 1, 0, 0);
-        barycentrics[2] = new Vector4(0, 0, 1, 0);
-        _mat.SetVectorArray("_barycentrics", barycentrics);
 
         Mesh newMesh = ConvertMeshToNoShareFormat(smr.sharedMesh);
         smr.sharedMesh = newMesh;
@@ -140,17 +135,11 @@ public class MeshModifier : MonoBehaviour {
             newMesh.colors32 = newColors32;
         }
 
-
-        
-        Matrix4x4[] bindPoses = mesh.bindposes;
-
         newMesh.subMeshCount = mesh.subMeshCount;
         int idxOffset = 0;
         for (int i= 0, imax = mesh.subMeshCount; i < imax; i++)
         {
             uint subIdxCount = mesh.GetIndexCount(i);
-            int[] indices = mesh.GetIndices(i);
-            int[] subTriangles = mesh.GetTriangles(i);
             int[] subIndices = new int[subIdxCount];
             for(int j = 0; j < subIdxCount; j++)
             {

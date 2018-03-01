@@ -10,3 +10,6 @@
 ### Refererence
 http://codeflow.org/entries/2012/aug/02/easy-wireframe-display-with-barycentric-coordinates/
 https://stackoverflow.com/questions/7361582/opengl-debugging-single-pass-wireframe-rendering
+
+### Thanks
+* **ElPsyCongree**: https://github.com/ElPsyCongree

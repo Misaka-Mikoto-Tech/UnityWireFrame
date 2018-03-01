@@ -32,17 +32,17 @@
 				UNITY_FOG_COORDS(1)
 				float4 vertex : SV_POSITION;
 				float4 uv2 : TEXCOORD1;
-				float4 barycentric : TEXCOORD2;
+				half3 barycentric : TEXCOORD2;
 			};
 
 			sampler2D _MainTex;
 			float4 _MainTex_ST;
 			float  _WireWidth;
-			
-			uniform float4 _barycentrics[3]; // (1,0,0),(0,1,0),(0,0,1)
 
 			v2f vert (appdata v)
 			{
+				const half3x3 _barycentrics = half3x3(half3(1, 0, 0), half3(0, 1, 0), half3(0, 0, 1));
+
 				v2f o = (v2f)0;
 				o.vertex = UnityObjectToClipPos(v.vertex);
 				o.uv = TRANSFORM_TEX(v.uv, _MainTex);
