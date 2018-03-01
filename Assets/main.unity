@@ -1917,6 +1917,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smr: {fileID: 1582814280}
+  wireWidth: 1
 --- !u!111 &1244066857
 Animation:
   m_ObjectHideFlags: 0
@@ -2362,7 +2363,7 @@ Camera:
   m_GameObject: {fileID: 1565576713}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
+  m_ClearFlags: 2
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
